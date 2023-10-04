@@ -13,6 +13,8 @@ To design this parking lot system using the bottom-up design approach.
 
 ## The following design patterns can be used to design the parking lot system:
 
+Creational Design Patterns
+
 * Singleton design pattern (there will only be a single instance of the parking lot system.)
 * Abstract Factory design pattern (entrance, exit, parking spots, parking rates)
 * Factory design pattern (entrance, exit, parking spots, parking rates)
