@@ -1,0 +1,31 @@
+<!-- extends -->
+{% extends 'base.html' %}
+<!-- load static -->
+{% load static %}
+<!-- block title -->
+{% block title %} Lista Departamentos {% endblock title %}
+<!-- block content -->
+{% block content %}
+<!-- include -->
+{% include 'includes/header.html' %}
+<div class="grid-container">
+  <div class="grid-x">
+    <h1 class="cell">Registrar Departamento</h1>
+    <form class="cell callout grid-x grid-margin-x" method="POST">
+      {% csrf_token %}
+      <div class="medium-6 cell">
+        <label>Nombres: {{ form.nombre }}</label>
+      </div>
+      <div class="medium-6 cell">
+        <label>Apellidos: {{ form.apellidos }}</label>
+      </div>
+      <div class="medium-6 cell">
+        <label>Departamento: {{ form.departamento }}</label>
+      </div>
+      <div class="medium-6 cell">
+        <label>Area: {{ form.shortname }}</label>
+      </div>
+    </form>
+  </div>
+</div>
+{%endblock content %}

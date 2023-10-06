@@ -1,0 +1,49 @@
+<!-- extends -->
+{% extends 'base.html' %}
+<!-- load static -->
+{% load static %}
+<!-- block title -->
+{% block title %} Lista Departamentos {% endblock title %}
+<!-- block content -->
+{% block content %}
+<!-- include -->
+{% include 'includes/header.html' %}
+<div class="grid-container">
+  <div class="grid-x">
+    <div class="cell">Empleados por Area</div>
+    <div class="cell">
+      <!-- Inicio de la tabla -->
+      <table>
+        <thead>
+          <tr>
+            <th width="50">ID</th>
+            <th width="200">NOMBRES</th>
+            <th width="200">APELLIDOS</th>
+            <th width="200">DEPARTAMENTO</th>
+            <th width="200">ACCION</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in lista %}
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.first_name }}</td>
+            <td>{{ item.last_name }}</td>
+            <td>{{ item.departamento }}</td>
+            <td>
+              <a
+                class="button primary"
+                href="{% url 'persona_app:empleado_detalle' item.id %}"
+                >Ver</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <!-- Fin de la tabla -->
+    </div>
+  </div>
+</div>
+
+{%endblock content %}

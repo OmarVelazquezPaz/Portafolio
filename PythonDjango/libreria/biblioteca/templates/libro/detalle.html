@@ -1,0 +1,17 @@
+<h1>Libro detalle</h1>
+<p>{{libro.titulo}}</p>
+<p>{{libro.fecha}}</p>
+<p>{{libro.categoria}}</p>
+
+<p>--many to --many</p>
+{% for autor in libro.autores.all %}
+<ul>
+  {{autor}}
+</ul>
+{% endfor %}
+
+<p>----agregar autores</p>
+<form method="post">
+  <input type="text" placeholder="agregar autor" />
+  <button type="submit">Guardar</button>
+</form>

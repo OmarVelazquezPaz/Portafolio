@@ -1,0 +1,47 @@
+<!-- extends -->
+{% extends 'base.html' %}
+<!-- load static -->
+{% load static %}
+<!-- block title -->
+{% block title %} {{ object.full_name }} {% endblock title %}
+<!-- block content -->
+{% block content %}
+<!-- include -->
+{% include 'includes/header.html' %}
+<div class="grid-container">
+  <div class="grid-x grid-margin-x align-center">
+    <div class="cell large-4 card" style="width: 300px; margin-top: 10px">
+      <div class="card-divider">{{ empleado.get_job_display }}</div>
+      {% if empleado.avatar %}
+      <img src="{{ empleado.avatar.url }}" />
+      {% else %}
+      <!-- Poner una imagen static -->
+      <!-- <img src=" static 'img/imagen.jpg' " /> -->
+
+      {{ empleado.first_name }} {% endif %}
+      <div class="card-section">
+        <h5>{{ empleado.full_name }}</h5>
+        <p>{{ empleado.departamento.short_name }}</p>
+        <p>
+          <span class="label">Habilidades: </span>
+        </p>
+        <ul class="vertical menu">
+          {% for h in empleado.habilidades.all %}
+          <li>{{ h.habilidad }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock content %}
+
+<h1>Detalle de un empleado {{titulo}}</h1>
+
+<!-- {{object}} -->
+{{empleado}}
+<h3>Todos los datos</h3>
+<p>{{ empleado.first_name }}</p>
+<p>{{ empleado.last_name }}</p>
+<p>{{ empleado.departamento }}</p>
+<p>{{ empleado.habilidades }}</p>

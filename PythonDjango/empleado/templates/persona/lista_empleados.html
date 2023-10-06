@@ -1,0 +1,89 @@
+<!-- extends -->
+{% extends 'base.html' %}
+<!-- load static -->
+{% load static %}
+<!-- block title -->
+{% block title %} Listado Empleados {% endblock title %}
+<!-- block content -->
+{% block content %}
+<!-- include -->
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+  <div class="grid-x">
+    <h1 class="cell">Lista Empleados</h1>
+  </div>
+  <div class="cell">
+    <!-- Inicio de la tabla -->
+    <table>
+      <thead>
+        <tr>
+          <th width="50">ID</th>
+          <th width="200">NOMBRES</th>
+          <th width="200">APELLIDOS</th>
+          <th width="200">DEPARTAMENTO</th>
+          <th width="200">ACCION</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in lista %}
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.first_name }}</td>
+          <td>{{ item.last_name }}</td>
+          <td>{{ item.departamento }}</td>
+          <td>
+            <a
+              class="button primary"
+              href="{% url 'persona_app:empleado_detalle' item.id %}"
+              >Ver</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <!-- Fin de la tabla -->
+  </div>
+  <div class="cell">
+    <!-- Verifica si hay paginacion -->
+    {% if is_paginated %}
+    <nav aria-label="Pagination">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="pagination-previous">
+          <a href="?page={{ page_obj.previous_page_number }}">Atras</a>
+        </li>
+        {% endif %}
+
+        <!-- Iterar en la pagiacion -->
+        {% for pagina in paginator.page_range %}
+
+        <!-- Compara paginacion -->
+        {% if pagina == page_obj.number %}
+        <li class="current">
+          <span class="show-for-sr">You're on page</span>{{ pagina }}
+        </li>
+        {% else %}
+        <li class="">
+          <a href="?page={{ pagina }}">{{ pagina }}</a>
+        </li>
+        {% endif %}
+        <!-- Fin bucle for -->
+        {% endfor %}
+
+        <!-- Paginacion siguiente -->
+        {% if page_obj.has_next %}
+        <li class="pagination-next">
+          <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        </li>
+
+        {% endif %}
+      </ul>
+    </nav>
+    <!-- FIN Verifica si hay paginacion -->
+    {% endif %}
+  </div>
+</div>
+
+{%endblock content %}
