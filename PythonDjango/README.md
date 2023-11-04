@@ -11,3 +11,7 @@ Control de de uusarios al registrarse en el servidor.
 ## 3. libreria
 
 Un pequeño programa que simula una libreria.
+
+## 4. pagina de comida
+
+Un pequeño programa que simula una pagina que muestra comida, se pueden crear usuarios y autenticarse, añadir y borrar elementos.
