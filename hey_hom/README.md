@@ -2,46 +2,52 @@
 
 ## API
 
-### Crear una ambiente virtual.
+### To create a virtual environment.
 
-- Seleccionar una carpeta.
-- En una terminal dentro de la carpeta seleccionada, ejecutar: **python -m venv venv**
-- Para activar el ambiente viertual: **Source venv/bin/activate**
-- Instalar los reuerimientos del proyecto: **pip install -r requirements.txt**
+- Choose a folder.
+- In a terminal, in the chosen folder, execute: **python -m venv venv**
+- To activate the env: **Source venv/bin/activate**
+- To install the requirements: **pip install -r requirements.txt**
 
-## Para guardar y cargar información de/en la base de datos en un formato JSON.
+## To save and load data from/in the DB, in a JSON format.
 
-- Al nivel donde se encantra en archivo **manage.py** para guardar datos, ejecutar: **python manage.py dumpdata > nom_archivo.json**
-- Al nivel donde se encantra en archivo **manage.py** para cargar datos, ejecutar : **python manage.py loaddata nom_archivo.json**
+- At the same level where the **manage.py** file is, to save data: **python manage.py dumpdata > file_name.json**
+- At the same level where the **manage.py** file is, to load data: **python manage.py loaddata file_name.json**
 
-## Instrucciones para ejecutar el proyecto.
+## How to execute the project.
 
-1.- Descargar el proyecto.
+1.- Download the folder hey_hom.
 
-2.- Entrar a la carpeta hey_home.
+2.- Open a terminal in the folder and navigate to where the **manage.py** file is.
 
-3.- Ejecutar las migraciones para crear la base de datos, **python manage.py makemigrations** despues **python manage.py migrate**.
+3.- Execute the migrations to create the DB with these commands: **python manage.py makemigrations** then **python manage.py migrate**.
 
-4.- Una vez creada la base de datos ejecutar el siguiente comando para llenar la base con algunos ejemplos **python manage.py loaddata respaldo.json**.
+4.- Once the DB is created, execute the next command to load some data in it: **python manage.py loaddata respaldo.json**.
 
-5.- Ejemplos para ver los endpoints.
+5.- To se some endpoints.
 
-Para crear:
+To create or load info:
 
 - http://127.0.0.1:8000/api/create/
 
-Para ver toda la lista de datos: (Solo se muestran 5 en cada pagina).
+To see the whole list of information available: (It only shows 5 per page).
 
 - http://127.0.0.1:8000/api/list/
 
-Detalle de uno en especifico:
+To se the detail of one:
 
 - http://127.0.0.1:8000/api/detail/3
 
-Para actualizar los datos de una entrada:
+To update and see the data to be updated beforhand:
 
 - http://127.0.0.1:8000/api/update/4
 
-Para borrar datos:
+To delete one:
 
 - http://127.0.0.1:8000/api/delete/5
+
+## For scalability and maintainability
+
+I usually divide the applications inside of a folder, to keep all the files readable.
+
+In the main folder, I create a settings folder to divide a base, local and production files, and inside the base file, the readability in the django, local and third party apps is also visible.
