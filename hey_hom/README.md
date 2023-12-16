@@ -34,7 +34,7 @@ To see the whole list of information available: (It only shows 5 per page).
 
 - http://127.0.0.1:8000/api/list/
 
-To se the detail of one:
+To see the detail of one:
 
 - http://127.0.0.1:8000/api/detail/3
 
