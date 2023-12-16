@@ -2,6 +2,20 @@
 
 ## API
 
+### Crear una ambiente virtual.
+
+- Seleccionar una carpeta.
+- En una terminal dentro de la carpeta seleccionada, ejecutar: **python -m venv venv**
+- Para activar el ambiente viertual: **Source venv/bin/activate**
+- Instalar los reuerimientos del proyecto: **pip install -r requirements.txt**
+
+## Para guardar y cargar información de/en la base de datos en un formato JSON.
+
+- Al nivel donde se encantra en archivo **manage.py** para guardar datos, ejecutar: **python manage.py dumpdata > nom_archivo.json**
+- Al nivel donde se encantra en archivo **manage.py** para cargar datos, ejecutar : **python manage.py loaddata nom_archivo.json**
+
+## Instrucciones para ejecutar el proyecto.
+
 1.- Descargar el proyecto.
 
 2.- Entrar a la carpeta hey_home.
