@@ -35,6 +35,7 @@ DJANGO_APPS = (
 
 LOCAL_APPS = (
     'applications.property.apps.PropertyConfig',
+    'applications.users.apps.UsersConfig',
 )
 
 THIRD_PARTY_APPS = (
